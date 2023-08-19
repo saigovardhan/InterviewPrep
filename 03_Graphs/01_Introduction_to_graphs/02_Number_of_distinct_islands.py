@@ -19,7 +19,7 @@ def dfs(i, j, grid, visited, directions):
         if nr >=0 and nc >=0 and nr < len(grid) and nc < len(grid[0]):
             if visited[nr][nc] ==0 and grid[nr][nc] ==1:
                 dfs(nr, nc, grid, visited, directions)
-
+grid =[]
 number_of_islands(grid)
 
                 
