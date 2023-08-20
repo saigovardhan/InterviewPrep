@@ -20,7 +20,7 @@ def dfs(i, j, grid, visited, directions):
             if visited[nr][nc] ==0 and grid[nr][nc] ==1:
                 dfs(nr, nc, grid, visited, directions)
 
-
+number_of_islands(grid)
 
                 
 
