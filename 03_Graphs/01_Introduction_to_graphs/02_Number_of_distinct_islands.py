@@ -7,5 +7,20 @@ def number_of_islands(grid):
     for i in range(r):
         for j in range(c):
             if grid[i][j] == 1 and visited[i][j] ==0:
+                dfs(i, j, grid, visited, directions)
+                islands+=1
+    print(islands)
+
+def dfs(i, j, grid, visited, directions):
+    visited[i][j] = 1
+    for d in directions:
+        nr = d[0]
+        nc = d[1]
+        if nr >=0 and nc >=0 and nr < len(grid) and nc < len(grid[0]):
+            if visited[nr][nc] ==0 and grid[nr][nc] ==1:
+                dfs(nr, nc, grid, visited, directions)
+
+
+
                 
 
