@@ -15,6 +15,7 @@ Example 2:
 Input: [2, 2, 0, 1, 2, 0]
 Output: [0 0 1 2 2 2 ]
 """
+
 def dutch_national_flag(nums):
     end = 0
     zerosPosition = 0
