@@ -20,20 +20,25 @@ Output: 1
 
 """
 def longest_increasing_subsequence(nums):
-    # dp = [[0 for _ in range(len(nums)+1)] for _ in range(len(nums)+1)]
-    sol = dfs(len(nums)-1, -1, nums)
+    dp = [[0 for _ in range(len(nums)+1)] for _ in range(len(nums)+1)]
+    sol = dfs(len(nums)-1, -1, nums, dp)
     print(sol)
 
-def dfs(ind, prev, nums):
+def dfs(ind, prev, nums, dp):
     if ind<0:return 0
+
+    if dp[ind][prev] !=0:
+        return dp[ind][prev]
 
     pick = 0
     if prev ==-1 or nums[ind]<nums[prev]:
-        pick = 1+ dfs(ind-1, ind, nums)
+        pick = 1+ dfs(ind-1, ind, nums, dp)
 
-    not_pick = 0+ dfs(ind-1, prev, nums)
+    not_pick = 0+ dfs(ind-1, prev, nums, dp)
 
-    return max(pick,not_pick)
+    dp[ind][prev] = max(pick, not_pick)
+
+    return dp[ind][prev]
 
 
 longest_increasing_subsequence([10, 9, 2, 5, 3, 7, 101, 18])
