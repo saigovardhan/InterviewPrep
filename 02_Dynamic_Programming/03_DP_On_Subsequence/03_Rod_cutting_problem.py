@@ -15,8 +15,7 @@ def memoization(ind, cap, weight, profit):
         return 0
 
     if ind ==0:
-        return profit[ind]* cap
-    
+        return profit[ind] * cap
 
     take = 0
     if weight[ind] >=cap:
