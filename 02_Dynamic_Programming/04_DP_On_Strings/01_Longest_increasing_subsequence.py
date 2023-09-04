@@ -29,24 +29,39 @@ Explanation: There is no such common subsequence, so the result is 0.
 def longest_increast_increasing_subsequence(s1, s2):
     i = len(s1)-1
     j = len(s2)-1
-
-    sol = memoization(i, j, s1 , s2)
+    dp = [[0 for _ in range(j+2)] for _ in range(i+2)]
+    # sol = memoization(i, j, s1 , s2, dp)
+    sol = tabulation(i, j, s1, s2, dp)
     print(sol)
 
-def memoization(i,j, s1, s2):
+def memoization(i,j, s1, s2, dp):
     if i< 0 or j < 0 : return 0
     # if i==0 and j ==0: return 1 if s1[i] ==s2[j] else 0
+    if dp[i][j]!=0: return dp[i][j]
 
     pick = 0
     if s1[i] == s2[j]:
-        pick =1+ memoization(i-1, j-1, s1, s2)
-        return pick
+        pick =1+ memoization(i-1, j-1, s1, s2, dp)
+        dp[i][j] = pick
+        return dp[i][j]
     
     not_pick =0+ max(
-        memoization(i-1, j, s1, s2),
-        memoization(i, j-1, s1, s2)
+        memoization(i-1, j, s1, s2, dp),
+        memoization(i, j-1, s1, s2, dp)
     )
+    dp[i][j] = not_pick
+    return dp[i][j]
 
-    return not_pick
+def tabulation(i, j, s1, s2, dp):
+    for i in range(1, len(s1)+1):
+        for j in range(1, len(s2)+1):
+            if s1[i-1]==s2[j-1]:
+                dp[i][j] =1+ dp[i-1][j-1]
+            else:
+                dp[i][j] = max(dp[i-1][j], dp[i][j-1])
+    
+    print(dp)
+    return dp[len(s1)][len(s2)]
+            
 
-longest_increast_increasing_subsequence("abc","aef")
+longest_increast_increasing_subsequence("abchjk","abctmn")
