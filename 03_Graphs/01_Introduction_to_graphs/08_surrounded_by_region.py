@@ -44,16 +44,16 @@ def surrounded_region(grid):
 
     
     for i in range(r):
-        if grid[i][0] ==0:
+        if grid[i][0] =="O":
             dfs(i, 0, grid, directions, visited)
 
-        if grid[i][c-1] ==0:
+        if grid[i][c-1] == "O":
             dfs(i, c-1, grid, directions, visited)
     for j in range(c):
-        if grid[0][j] ==0:
+        if grid[0][j] == "O":
             dfs(0, j, grid, directions, visited)
         
-        if grid[r-1][j] ==0:
+        if grid[r-1][j] == "O":
             dfs(r-1, j, grid, directions, visited)
         
     print(visited)
@@ -69,6 +69,6 @@ def dfs(i, j, grid, directions, visited):
 
 
 surrounded_region([["X", "X", "X", "X"], ["X", "O", "O", "X"], [
-                  "X", "X", "O", "X"], ["X", "O", "X", "X"]])
+                  "X", "O", "O", "X"], ["X", "O", "X", "X"]])
 
 
