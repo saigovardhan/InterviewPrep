@@ -20,6 +20,10 @@ Input: Intervals=[[2,3],[5,7]], New Interval=[1,4]
 Output: [[1,4], [5,7]]
 Explanation: After insertion, since [1,4] overlaps with [2,3], we merged them into one [1,4].
 """
+
+"""
+start end use two pointers 
+"""
 def insert_interval(intervals, newInterval):
     intervals.sort(key=lambda x:x[0])
     start = newInterval[0]
