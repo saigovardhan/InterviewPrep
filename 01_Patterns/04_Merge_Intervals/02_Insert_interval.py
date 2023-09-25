@@ -25,7 +25,33 @@ def insert_interval(intervals, newInterval):
     start = newInterval[0]
     end = newInterval[1]
     next_pos = 0
-    for i in range(len(intervals)):
+    matched = []
+    while intervals[next_pos][0] < start:
+        matched.append([intervals[next_pos]])
+        next_pos+=1
+    for interval in intervals:
+        curr_start = interval[0]
+        curr_end = interval[1]
+
+        if curr_start <= end:
+            end = max(end, curr_end)
+
+        else:
+            matched.append([start, end])
+            start = curr_start
+            end = curr_end
+    matched.append([start, end])
+    print(matched)
+
+
+insert_interval([[2, 3], [5, 7]], [1, 4])
+
+insert_interval([[1, 3], [5, 7], [8, 12]], [4, 10])
+
+
+        
+        
+
         
 
     
