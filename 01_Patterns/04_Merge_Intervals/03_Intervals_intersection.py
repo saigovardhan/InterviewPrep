@@ -23,6 +23,25 @@ from heapq import heappush, heappop
 def interval_insertion(arr1, arr2):
     arr1.sort(key = lambda x: x[0])
     arr2.sort(key = lambda x:x[0])
+
+    i =0
+    j =0
+
+    while i < len(arr1) or j < len(arr2):
+        #a overlaps b
+        if arr1[i][0] >= arr2[j][0] and arr1[i][1] <= arr2[j][1]:
+
+        #b overlaps a
+
+        if any of above is true:
+            resule.append(min(starts), max(ends))
+        
+        if arr1[i][1] <arr2[j][1]:
+            i+=1
+        else:
+            j+=1
+    return result
     
-    
+
+
 
