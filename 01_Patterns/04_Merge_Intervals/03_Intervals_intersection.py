@@ -22,6 +22,5 @@ interval_insertion(arr1 = [[1, 3], [5, 6], [7, 9]], arr2 = [[2, 3], [5, 7]])
 def interval_insertion(arr1, arr2):
     arr1.sort(key = lambda x: x[0])
     arr2.sort(key = lambda x:x[0])
-    print(arr1)
-    print(arr2)
+  
 
