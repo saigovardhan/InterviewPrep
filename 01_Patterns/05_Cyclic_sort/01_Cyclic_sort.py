@@ -22,3 +22,12 @@ Example 3:
 Input: [1, 5, 6, 4, 3, 2]
 Output: [1, 2, 3, 4, 5, 6]
 """
+def cyclic_sort(nums):
+    i =0
+    for j, num in enumerate(nums):
+        while nums[i] !=nums:
+            
+
+
+cyclic_sort([2, 6, 4, 3, 1, 5])
+        
