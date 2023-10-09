@@ -27,10 +27,23 @@ Input: nums = [1,2,3]
 Output: 0
 Explanation: The only ordered triplet of indices (0, 1, 2) has a negative value of (nums[0] - nums[1]) * nums[2] = -3. Hence, the answer would be 0.
 """
+from heapq import heappush, heappop
+def heap_data_structure(nums):
+    minHeap = []
+    for n in nums:
+        heappush(minHeap, n)
+    
+    max_triplet = 0
+    while minHeap:
+        p1 , p2, p3 = heappop(minHeap), heappop(minHeap), heappop(minHeap)
+        curr = (p1-p2)* p3
+        if(curr)> 0:
+            max_triplet = max(max_triplet, curr)
+    print(max_triplet)   
+    if max_triplet <=0:
+        return 0
+    else:
+        return max_triplet
 
 
-        
-
-
-        
-
+heap_data_structure([1, 10, 3, 4, 19])
